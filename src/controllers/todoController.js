@@ -69,7 +69,6 @@ export const deleteTodo = async (req, res) => {
     // Delete the todo
     await Todo.findByIdAndDelete(todoId);
 
-    // Optionally, remove the todo reference from the user's document
     // await User.findByIdAndUpdate(userId, { $pull: { todos: todoId } });
 
     return res.status(200).json({ message: 'Todo deleted successfully' });
@@ -89,7 +88,6 @@ export const togglePin = async (req, res) => {
       return res.status(404).json({ message: 'Todo not found' });
     }
 
-    // Check if the todo belongs to the user
     if (todo.user.toString() !== userId) {
       return res.status(403).json({ message: 'Not authorized to update this todo' });
     }

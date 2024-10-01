@@ -15,8 +15,6 @@ app.get('/', (req, res) => {
 
 // User routes
 app.use('/api/v1/user', userRouter);
-
-// Todo routes
 app.use('/api/v1/todo', todoRouter);
 
 export default app;
